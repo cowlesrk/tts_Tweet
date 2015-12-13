@@ -1,0 +1,46 @@
+<div class="row">
+	<div class="col-xs-4">
+		<h3><%= @user.name %></h3>
+		<br>
+		<h5><%= @user.username %></h5>
+		<h5><p><%= user.bio %></p></h5>
+		<h5><%= user.location %></h5>
+		<br>
+		<h5>Joined on <%= @user.created_at.strftime("%B %Y") %></h5>
+		<br>
+		<%= @user.relationships.count %>
+		Following 
+		<br>
+		<% @user.relationships.each do |relationship| %>
+		<%= link_to relationship.friend.name, profile_path(friend) %>
+		<br>
+		<br>
+		<% end %>
+		<br>
+		<br>
+		<%= pluralize(@user.inverse_relationships.count, "Follower") %>.
+		<br>
+		<% @user.inverse_friends.each do |friend| %>
+		<%= link_to friend.name, profile_path(friend) %>
+		<br>
+		<% end %>
+	</div>
+</div>
+
+
+<h1><%= @user.username %>'s Profile</h1>
+<% @user.twerks.each do |twerk| %>
+	<%= twerk.message %> <br>
+	<% end %>
+
+<% if current_user.id != @user.id %>
+
+<% if current_user.friends.include?(@user) %>
+<%= link_to "Solo Twerk", relationship_path(current_user.relationships.find_by_friend_id(@user), :method => :delete, class: "btn btn-danger" %>
+
+<% else %>
+
+<%= link_to "Simultaneously Twerk!", relationships_path(:friend_id => @user), method: :post, class: "btn btn-primary" %>
+
+<% end %>
+<% end %>
