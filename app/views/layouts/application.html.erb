@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tweet</title>
+  <title>Twerk</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,6 +12,11 @@
 
 </head>
 <body>
+
+<ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="/twerks">Home</a></li>
+  <li role="presentation" class="active"><a href="/profiles">Profiles</a></li>
+</ul>
 
 <div class="pull-right">
 	<% if user_signed_in? %>
