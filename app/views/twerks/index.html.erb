@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>No Twerks Given</h1>
-
+<h1>T W E R K</h1>
+<div class="table">
 <table>
 	<thead>
 		<tr>
-			<th>Message</th>
-			<th>User</th>
-			<th colspan="3"></th>
+			<th class="col-sm-6">Say What?</th>
+			<th class="col-sm-6">User</th>
+			
 		</tr>
 	</thead>
 	<tbody>
@@ -15,14 +15,14 @@
 		<tr>
 			<td><%= twerk.message %></td>
 			<td><%= twerk.user.username %></td>
-			<td><%= link_to 'Show', twerk %></td>
-			<td><%= link_to 'Edit', edit_twerk_path(twerk) %></td>
-			<td><%= link_to 'Destroy', twerk, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+			<td><%= link_to "<span class=\"glyphicon glyphicon-search\"></span>".html_safe, twerk %></td>
+			<td><%= link_to "<span class=\"glyphicon glyphicon-pencil\"></span>".html_safe, edit_twerk_path(twerk) %></td>
+			<td><%= link_to "<span class=\"glyphicon glyphicon-trash\"></span>".html_safe, twerk, method: :delete, data: {confirm: 'Are you sure?'} %></td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
-
+</div>
+</div>
 <br>
-
-<%= link_to 'Twerk It', new_twerk_path %>
+<span class="glyphicon glyphicon-comment" aria-hidden="true"><%= link_to ' Twerk', new_twerk_path %></span>
