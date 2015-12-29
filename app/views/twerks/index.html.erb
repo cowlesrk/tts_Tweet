@@ -13,8 +13,8 @@
 	<tbody>
 		<% @twerks.each do |twerk| %>
 		<tr>
-			<td><%= twerk.message %></td>
-			<td><%= twerk.user.username %></td>
+			<td class="col-sm-6"><%= twerk.message %></td>
+			<td class="col-sm-6"><%= twerk.user.username %></td>
 			<td><%= link_to "<span class=\"glyphicon glyphicon-search\"></span>".html_safe, twerk %></td>
 			<td><%= link_to "<span class=\"glyphicon glyphicon-pencil\"></span>".html_safe, edit_twerk_path(twerk) %></td>
 			<td><%= link_to "<span class=\"glyphicon glyphicon-trash\"></span>".html_safe, twerk, method: :delete, data: {confirm: 'Are you sure?'} %></td>
